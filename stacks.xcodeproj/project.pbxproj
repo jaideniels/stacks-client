@@ -8,17 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		F20174562762B99B00442228 /* stacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174552762B99B00442228 /* stacksApp.swift */; };
-		F20174582762B99B00442228 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174572762B99B00442228 /* ContentView.swift */; };
+		F20174582762B99B00442228 /* StacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174572762B99B00442228 /* StacksView.swift */; };
 		F201745A2762B99C00442228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F20174592762B99C00442228 /* Assets.xcassets */; };
 		F201745D2762B99C00442228 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F201745C2762B99C00442228 /* Preview Assets.xcassets */; };
+		F20174652762E43D00442228 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174642762E43D00442228 /* Stack.swift */; };
+		F20174672762E4D700442228 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174662762E4D700442228 /* Model.swift */; };
+		F20174692762E51200442228 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174682762E51200442228 /* Card.swift */; };
+		F201746B2762E56400442228 /* StacksService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201746A2762E56400442228 /* StacksService.swift */; };
+		F201746D2763D48700442228 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201746C2763D48700442228 /* SettingsView.swift */; };
+		F201746F2763E34600442228 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201746E2763E34600442228 /* GameView.swift */; };
+		F20174712764077400442228 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174702764077400442228 /* CardView.swift */; };
+		F20174772764577D00442228 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174762764577D00442228 /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F20174522762B99B00442228 /* stacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = stacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F20174552762B99B00442228 /* stacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = stacksApp.swift; sourceTree = "<group>"; };
-		F20174572762B99B00442228 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F20174572762B99B00442228 /* StacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksView.swift; sourceTree = "<group>"; };
 		F20174592762B99C00442228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F201745C2762B99C00442228 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F20174642762E43D00442228 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		F20174662762E4D700442228 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		F20174682762E51200442228 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		F201746A2762E56400442228 /* StacksService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StacksService.swift; sourceTree = "<group>"; };
+		F201746C2763D48700442228 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F201746E2763E34600442228 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		F20174702764077400442228 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		F20174762764577D00442228 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +67,12 @@
 		F20174542762B99B00442228 /* stacks */ = {
 			isa = PBXGroup;
 			children = (
+				F20174632762E41B00442228 /* model */,
 				F20174552762B99B00442228 /* stacksApp.swift */,
-				F20174572762B99B00442228 /* ContentView.swift */,
+				F20174572762B99B00442228 /* StacksView.swift */,
+				F201746E2763E34600442228 /* GameView.swift */,
+				F20174702764077400442228 /* CardView.swift */,
+				F201746C2763D48700442228 /* SettingsView.swift */,
 				F20174592762B99C00442228 /* Assets.xcassets */,
 				F201745B2762B99C00442228 /* Preview Content */,
 			);
@@ -65,6 +85,18 @@
 				F201745C2762B99C00442228 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F20174632762E41B00442228 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				F20174642762E43D00442228 /* Stack.swift */,
+				F20174662762E4D700442228 /* Model.swift */,
+				F20174682762E51200442228 /* Card.swift */,
+				F201746A2762E56400442228 /* StacksService.swift */,
+				F20174762764577D00442228 /* Game.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +169,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F20174582762B99B00442228 /* ContentView.swift in Sources */,
+				F201746D2763D48700442228 /* SettingsView.swift in Sources */,
+				F20174772764577D00442228 /* Game.swift in Sources */,
+				F20174712764077400442228 /* CardView.swift in Sources */,
+				F20174582762B99B00442228 /* StacksView.swift in Sources */,
+				F20174652762E43D00442228 /* Stack.swift in Sources */,
+				F20174692762E51200442228 /* Card.swift in Sources */,
+				F20174672762E4D700442228 /* Model.swift in Sources */,
+				F201746B2762E56400442228 /* StacksService.swift in Sources */,
+				F201746F2763E34600442228 /* GameView.swift in Sources */,
 				F20174562762B99B00442228 /* stacksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"stacks/Preview Content\"";
+				DEVELOPMENT_TEAM = 6QP8GBS4QT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -297,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"stacks/Preview Content\"";
+				DEVELOPMENT_TEAM = 6QP8GBS4QT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

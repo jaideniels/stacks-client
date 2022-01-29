@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct stacksApp: App {
+    @StateObject var model = Model()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SettingsView()
+                .environmentObject(model)
         }
     }
 }
