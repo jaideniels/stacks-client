@@ -13,7 +13,7 @@ struct stacksApp: App {
 
     var body: some Scene {
         WindowGroup {
-            SettingsView()
+            StacksView()
                 .environmentObject(model)
         }
     }
