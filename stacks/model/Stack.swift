@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Stack : Codable, Identifiable {
+class Stack : Codable, Identifiable, ObservableObject {
     var id : Int
     var name : String
     var cards : [Card]

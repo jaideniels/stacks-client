@@ -12,7 +12,7 @@ struct StacksView: View {
     @State var showingAuthSheet : Bool
     @State var editMode : Bool
     @State var dataLoaded = false
-    
+     
     init() {
         UITableView.appearance().backgroundColor = .white
         showingAuthSheet = false
@@ -43,9 +43,7 @@ struct StacksView: View {
                 .background(Color.white)
                 .onAppear() {
                     if !dataLoaded {
-                        StacksService.loadData() { stacks in
-                            tryLogin()
-                        }
+                        tryLogin()
                     }
                 }
                 .sheet(isPresented: $showingAuthSheet, onDismiss: nil) {
@@ -76,14 +74,22 @@ struct StacksView: View {
             if let bangStacks = stacks {
                 model.stacks = bangStacks
                 dataLoaded = true
+                
+                StacksService.getScores() { (scores) in
+                    if let bangScores = scores {
+                        for score in bangScores {
+                            model.updateScore(score: score)
+                        }
+                    }
+                }
             }
             else
             {
                 showingAuthSheet.toggle()
             }
         }
+        
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -91,7 +97,6 @@ struct ContentView_Previews: PreviewProvider {
         StacksView()
             .environmentObject({ () -> Model in
                 let envObj = Model()
-                envObj.token = "jaydan_secret_token"
                 return envObj
             }() )
     }

@@ -19,6 +19,7 @@
 		F201746F2763E34600442228 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F201746E2763E34600442228 /* GameView.swift */; };
 		F20174712764077400442228 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174702764077400442228 /* CardView.swift */; };
 		F20174772764577D00442228 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20174762764577D00442228 /* Game.swift */; };
+		F20DEC0D286FCB9E004DBB14 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20DEC0C286FCB9E004DBB14 /* Score.swift */; };
 		F2F0D64D27A7696A00710E54 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0D64C27A7696A00710E54 /* StackView.swift */; };
 		F2F0D64F27A76EDB00710E54 /* FactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F0D64E27A76EDB00710E54 /* FactsView.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		F201746E2763E34600442228 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		F20174702764077400442228 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F20174762764577D00442228 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		F20DEC0C286FCB9E004DBB14 /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		F2F0D64C27A7696A00710E54 /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		F2F0D64E27A76EDB00710E54 /* FactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				F20174682762E51200442228 /* Card.swift */,
 				F201746A2762E56400442228 /* StacksService.swift */,
 				F20174762764577D00442228 /* Game.swift */,
+				F20DEC0C286FCB9E004DBB14 /* Score.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				F20174652762E43D00442228 /* Stack.swift in Sources */,
 				F20174692762E51200442228 /* Card.swift in Sources */,
 				F20174672762E4D700442228 /* Model.swift in Sources */,
+				F20DEC0D286FCB9E004DBB14 /* Score.swift in Sources */,
 				F201746B2762E56400442228 /* StacksService.swift in Sources */,
 				F201746F2763E34600442228 /* GameView.swift in Sources */,
 				F2F0D64F27A76EDB00710E54 /* FactsView.swift in Sources */,

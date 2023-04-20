@@ -21,7 +21,6 @@ struct SettingsView: View {
                     .textFieldStyle(.roundedBorder)
                     .multilineTextAlignment(.center)
                     .onAppear() {
-                        model.token = "jaydan"
                     }
                 Spacer()
                 

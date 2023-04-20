@@ -12,26 +12,30 @@ struct StackView: View {
     var stack : Stack
     @State var showingPopover = false
     @State var waiting = false
+    @State var editingFacts = false
     
     var stackIndex: Int {
         model.stacks.firstIndex(where: {$0.id == stack.id})!
     }
 
-    init(stack: Stack) {
-        self.stack = stack;
+    func cardIndex(_ card : Card) -> Int {
+        return model.stacks[stackIndex].cards.firstIndex(where: {$0.id == card.id })!
     }
     
     var body: some View {
-        List(stack.cards) { card in
-            NavigationLink(destination: FactsView(stack: stack, card: card)) {
+        List(stack.cards, id: \.id) { card in
+            NavigationLink(destination: FactsView(stack: stack, card: card, editing: $editingFacts, showToolbar: true, waiting: $waiting)) {
                 Text("\(card.name)")
             }
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button("Add") {
+                Button(action: {
                     model.ensureTempStack()
                     showingPopover = true
+                    editingFacts = true
+                }) {
+                    Image(systemName: "plus")
                 }
             }
         }
@@ -52,15 +56,14 @@ struct StackView: View {
                     .padding(.trailing, 20)
                 }
                 .offset(y: 30)
-                FactsView(stack: model.getTempStack()!, card: model.getTempCard()!)
+                FactsView(stack: model.getTempStack()!, card: model.getTempCard()!, editing: $editingFacts, showToolbar: false, waiting: $waiting)
                     .offset(y:60)
-                if waiting {
-                    ProgressView()
-                        .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-                }
+
                 Spacer()
             }
-
+            .onDisappear() {
+                editingFacts = false
+            }
         }
     }
 }

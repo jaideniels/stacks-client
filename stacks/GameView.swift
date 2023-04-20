@@ -18,11 +18,12 @@ struct GameView: View {
     @State var cardVisible = true
     @State var allowHitTesting = false
     @State var offset = 0.0
-    @State var clue : Fact
+    @State var clue : Clue
     @State var facts : [Fact]
     @State var cardColor = Color.white
     @State var cardFlipLeft = true
-    
+    @State var score = 1
+
     init(stack: Stack) {
         self.stack = stack;
         self.game = Game(stack: stack)
@@ -34,19 +35,27 @@ struct GameView: View {
         VStack {
             Spacer()
             ZStack {
-                CardView(animate3d:$cardFlipped, flipLeft:$cardFlipLeft, color: $cardColor, clue: $clue, facts: $facts)
+                CardView(animate3d:$cardFlipped, flipLeft:$cardFlipLeft, color: $cardColor, clue: $clue.facts[0], facts: $facts)
                     .offset(x:0, y:offset)
                     .opacity(cardVisible ? 1 : 0)
 
                 VStack {
-                    Text("🐳")
-                        .opacity(correct ? 0.75 : 0)
-                        .font(.system(size:100))
+                    HStack {
+                        ForEach (0..<score, id: \.self) { i in
+                            Text("🐳")
+                                .opacity(correct ? 0.75 : 0)
+                                .font(.system(size:50))
+                        }
+                    }
                     Spacer()
-                    Text("🐦")
-                        .opacity(incorrect ? 0.75 : 0)
-                        .font(.system(size:100))
-                        .offset(x:0, y:-140)
+                    HStack {
+                        ForEach (0..<score, id: \.self) { i in
+                            Text("🐦")
+                                .opacity(incorrect ? 0.75 : 0)
+                                .font(.system(size:50))
+                                .offset(x:0, y:-140)
+                        }
+                    }
                 }
             }
             .allowsHitTesting(!allowHitTesting)
@@ -60,6 +69,12 @@ struct GameView: View {
                         if dragVertical
                         {
                             allowHitTesting = true
+                            if dragUp {
+                                game!.noit()
+                            } else {
+                                game!.dunnoit()
+                            }
+                            score = game!.score!.score
                             
                             withAnimation(.easeInOut) {
                                 if dragUp {
@@ -70,7 +85,7 @@ struct GameView: View {
                                 offset = 1000.0 * (dragUp ? -1 : 1)
                             }
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
                             {
                                 offset = 0.0
                                 cardVisible = false
@@ -80,7 +95,7 @@ struct GameView: View {
                                 facts = game!.facts!
                                 
                                 // fade feedback out
-                                withAnimation(.easeInOut(duration:0.5)) {
+                                withAnimation(.easeInOut(duration:0.4)) {
                                     if dragUp {
                                         correct.toggle()
                                     } else {
@@ -90,7 +105,7 @@ struct GameView: View {
                                 }
 
                                 // slightly delay reenabling gestures
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.25)
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
                                 {
                                     allowHitTesting = false
                                 }
@@ -103,12 +118,12 @@ struct GameView: View {
                             cardColor = Color(UIColor.darkGray)
                             cardFlipLeft = dragLeft
                             
-                            withAnimation(.easeInOut(duration: 0.5)) {
+                            withAnimation(.easeInOut(duration: 0.4)) {
                                 self.cardFlipped.toggle()
                                 self.cardColor = Color.white
                             }
                             
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
                             {
                                 allowHitTesting = false
                             }
@@ -120,18 +135,6 @@ struct GameView: View {
     }
         
 }
-
-//struct GameView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GameView(stack: envObj.stacks[0])
-//            .environmentObject({ () -> Model in
-//                let envObj = Model()
-//                envObj.token = "jaydan"
-//                envObj.stacks = try! JSONDecoder().decode([Stack].self, from:sampleData.data(using: .utf8)!)
-//                return envObj
-//            }() )
-//    }
-//}
 
 let sampleData = """
  [

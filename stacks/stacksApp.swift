@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct stacksApp: App {
-    @StateObject var model = Model()
+    @StateObject var model = Model.getModel()
 
     var body: some Scene {
         WindowGroup {
